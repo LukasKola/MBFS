@@ -8,11 +8,11 @@ import { ConfirmationDialog } from "components"
 import { useState } from "react"
 
 
-const CarCard = ({ car, deleteCar, updateCar }: Carprops) => {
+const CarCard = ({ car, deleteCar }: Carprops) => {
     const { id, fuel, manufacturer, model, engineVal, color, prize, picture } = car
     const [ deleteDialogOpen, setDeleteDialogOpen] = useState(false)
     const [updateDialogOpen, setUpdateDialogOpen] = useState(false)
-
+  
 
     return(
         <div className="car-card group">

@@ -54,8 +54,9 @@ const CustomForm = ({onSave, car}: CustomFormProps) => {
 
     const handleSave = () => {
         const errors = validateData();
-        console.log(carData)
+        
         if(Object.keys(errors).length){
+            console.log(errors)
             setErrors(errors)
             return
         }

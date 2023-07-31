@@ -25,7 +25,6 @@ export interface SearchManufacturerProps {
 export interface Carprops {
     car: Car;
     deleteCar: (id: string) => void;
-    updateCar: (id: string) => void;
 };
 
 export interface HeroProps {

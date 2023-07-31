@@ -1,7 +1,5 @@
 import { Dialog, Transition } from "@headlessui/react"
 import { Fragment, useState } from "react"
-
-import CustomButton from "./CustomButton"
 import CustomForm from "./CustomForm"
 import { CustomDialogProps } from "types"
 import { api } from "~/utils/api"

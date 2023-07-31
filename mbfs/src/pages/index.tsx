@@ -43,7 +43,7 @@ export default function Home() {
             (
               <section>
                 <div className="home__cars-wrapper" >
-                  {data?.map((car) => <CarCard car={car} deleteCar={deleteCar} updateCar={updateCar} />)}
+                  {data?.map((car) => <CarCard car={car} deleteCar={deleteCar}/>)}
                 </div>
               </section>
             ) : (
