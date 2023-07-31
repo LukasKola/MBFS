@@ -1,11 +1,25 @@
-import { CustomFilter, Hero, SearchBar } from "components";
+import { CarCard, CarList, CustomFilter, Hero, SearchBar } from "components";
 import Head from "next/head";
-import Link from "next/link";
 import { api } from "~/utils/api";
 
 
 export default function Home() {
-  const hello = api.example.hello.useQuery({ text: "from tRPC" });
+  const utils = api.useContext()
+  const cars = api.carRouter.getCars.useQuery()
+  const { data } = cars
+  const { mutate: deleteCar } = api.carRouter.deleteCar.useMutation({
+    async onSuccess() {
+      utils.carRouter.getCars.invalidate()
+    }
+  })
+  const { mutate: updateCar } = api.carRouter.updateCar.useMutation({
+    async onSuccess() {
+      utils.carRouter.getCars.invalidate()
+    }
+  })
+
+  const isDataEmpty = !Array.isArray(data) || data.length < 1 || !data
+
 
   return (
     <>
@@ -18,18 +32,29 @@ export default function Home() {
 
         <Hero />
         <div className="mt-12 padding-x padding-y max-width" >
-          <div className="home__text-container">
-            <h1 className="text-4xl font-extrabold">
-              Car catlog
-            </h1>
-          </div>
           <div className="home__filters">
-            <SearchBar/>
+            <SearchBar />
             <div className="home__filter-container">
-              <CustomFilter title='Typ paliva' />
-              <CustomFilter title='Rok výroby' />
+              <CustomFilter />
+              <CustomFilter />
             </div>
           </div>
+          {!isDataEmpty ?
+            (
+              <section>
+                <div className="home__cars-wrapper" >
+                  {data?.map((car) => <CarCard car={car} deleteCar={deleteCar} updateCar={updateCar} />)}
+                </div>
+              </section>
+            ) : (
+              <div className="home__error-container" >
+                <h2 className="text-black text-xl font-bold" >no results</h2>
+
+              </div>
+            )
+          }
+
+
         </div>
       </main>
     </>

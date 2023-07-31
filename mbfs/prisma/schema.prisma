@@ -4,25 +4,27 @@
 generator client {
   provider = "prisma-client-js"
 }
+
 datasource db {
-  provider = "mysql"
-  url = env("DATABASE_URL")
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
   relationMode = "prisma"
 }
 
 model Example {
-    id        String   @id @default(cuid())
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
-model Car{
-    id        String   @id @default(cuid())
-    manufacturer String
-    model String
-    engineVal Int
-    fuel String
-    color String
-    prize Int
-    picture String
+model Car {
+  id           String @id @default(cuid())
+  manufacturer String
+  model        String
+  engineVal    String
+  fuel         String
+  color        String
+  prize        String
+  picture      String
+  year         String
 }
