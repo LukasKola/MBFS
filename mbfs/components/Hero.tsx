@@ -1,17 +1,21 @@
+'use client'
 import { CustomButton } from "components"
-
+import Image from "next/image"
 const Hero = () => {
+    const handleScroll = () => { }
     return (
         <div className="hero" >
             <div className="flex-1 pt-36 padding-x">
                 <h1 className="hero__title">
-                    Zde najdeš své vysněné auto, rychle a lehce!
+                    Správa vozidel
                 </h1>
-                <p className="hero_subtitle">
-                    S námi je hledáni auta radost.
-                </p>
-                <CustomButton/>
+                <CustomButton
+                    title='Přidat vozidlo'
+                    containerStyles='bg-primary-blue text-white rounded-full mt-10'
+                    handleClick={handleScroll}
+                />
             </div>
+    
         </div>
     )
 }

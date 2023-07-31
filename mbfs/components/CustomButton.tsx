@@ -2,16 +2,17 @@
 
 import React from 'react'
 import Image from 'next/image'
+import { CustomButtonProps } from 'types'
 
-export default function CustomButton() {
+export default function CustomButton({ title, containerStyles, handleClick}: CustomButtonProps) {
     return (
         <button
             disabled={false}
             type='button'
-            className={'custom-btn'}
-            onClick={() => { }}
+            className={`custom-btn ${containerStyles}`}
+            onClick={() => { handleClick}}
         >
-            <span className={'flex-1'}>Title</span>
+            <span className={'flex-1'}>{title}</span>
         </button>
     )
 }
