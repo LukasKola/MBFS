@@ -33,7 +33,7 @@ const CarCard = ({ car, deleteCar }: Carprops) => {
                 <span className="self-start text-[14px]" >Rok výroby: {year}</span>
             </p>
             <div className="relative w-full h-40 my-3 object-contain" >
-                <Image src='/hero.png'alt="car model" fill priority className="object-contain" />
+                <Image src={picture || '/hero.png'} alt="car model" fill priority className="object-contain" />
             </div>
             <ConfirmationDialog open={deleteDialogOpen} setOpen={setDeleteDialogOpen} callBack={deleteCar} carId={id!}/>
             <CustomDialog adding={false} car={car} open={updateDialogOpen} setOpen={setUpdateDialogOpen}/>

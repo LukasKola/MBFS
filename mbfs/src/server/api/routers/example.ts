@@ -1,5 +1,5 @@
-import { create } from "domain";
-import { date, z } from "zod";
+
+import { z } from "zod";
 import { createTRPCRouter, publicProcedure } from "~/server/api/trpc";
 
 const CarSchema = z.object({
@@ -29,13 +29,13 @@ export const exampleRouter = createTRPCRouter({
 
 export const carRouter = createTRPCRouter({
   getCars: publicProcedure
-    .query(({ctx}) => {
+    .query(({ ctx }) => {
       return ctx.prisma.car.findMany()
     }),
 
   addCar: publicProcedure
     .input(CarSchema)
-    .mutation( async ({ input, ctx}) => {
+    .mutation(async ({ input, ctx }) => {
       const newCar = await ctx.prisma.car.create({
         data: {
           ...input
@@ -46,7 +46,7 @@ export const carRouter = createTRPCRouter({
 
   deleteCar: publicProcedure
     .input(z.string())
-    .mutation(async ({ input, ctx}) => {
+    .mutation(async ({ input, ctx }) => {
       const deletedCar = await ctx.prisma.car.delete({
         where: {
           id: input
@@ -54,12 +54,12 @@ export const carRouter = createTRPCRouter({
       })
       return deletedCar
     }),
-    updateCar: publicProcedure
+  updateCar: publicProcedure
     .input(z.object({
       id: z.string(),
       data: CarSchema,
     }))
-    .mutation(async({input, ctx}) => {
+    .mutation(async ({ input, ctx }) => {
       const updatedCar = await ctx.prisma.car.update({
         where: {
           id: input.id

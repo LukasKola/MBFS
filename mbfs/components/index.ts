@@ -1,6 +1,5 @@
 import Hero from "./Hero";
 import CustomButton from "./CustomButton";
-import Layout from "./Layout";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import SearchBar from "./SearchBar";
@@ -15,7 +14,6 @@ import ConfirmationDialog from "./ConfirmationDialog";
 export {
     Hero,
     CustomButton,
-    Layout,
     Footer,
     Navbar,
     CustomFilter,

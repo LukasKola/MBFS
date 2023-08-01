@@ -6,11 +6,13 @@ export const filterCars = (cars: Car[], model: string, manufacturer: string): Ca
     if(model && !manufacturer){
         return cars.filter((car) => car.model === model)
     } else if( !model && manufacturer){
-        return cars.filter((car) => car.manufacturer === manufacturer)
+        const filteredCarsReversed = [...cars.filter((car) => car.manufacturer === manufacturer)].reverse()
+        return filteredCarsReversed
     } else if(model && manufacturer){
-        const filteredManufacturer = cars.filter((car) => car.manufacturer === manufacturer)
+        const filteredManufacturer = [...cars.filter((car) => car.manufacturer === manufacturer)].reverse()
         return filteredManufacturer.filter((car) => car.model === model)
     } else {
-        return cars
+        const reversedCars = [...cars].reverse()
+        return reversedCars
     }
 }

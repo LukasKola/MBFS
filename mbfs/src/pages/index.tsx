@@ -1,6 +1,6 @@
 import { CarCard, CarList, CustomFilter, Hero, SearchBar } from "components";
 import Head from "next/head";
-import { use, useState } from "react";
+import { useState } from "react";
 import { api } from "~/utils/api";
 import { filterCars } from "~/utils/filterCars";
 
@@ -13,7 +13,7 @@ export default function Home() {
   const { data } = cars
   const { mutate: deleteCar } = api.carRouter.deleteCar.useMutation({
     async onSuccess() {
-      utils.carRouter.getCars.invalidate()
+      await utils.carRouter.getCars.invalidate()
     }
   })
  
@@ -50,7 +50,7 @@ export default function Home() {
               </section>
             ) : (
               <div className="home__error-container" >
-                <h2 className="text-black text-xl font-bold" >no results</h2>
+                <h2 className="text-black text-xl font-bold" >Žádna data</h2>
 
               </div>
             )

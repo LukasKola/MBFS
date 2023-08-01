@@ -20,9 +20,8 @@ const CustomDialog = ({ car, adding, open, setOpen }: CustomDialogProps) => {
     })
 
     const handleSave = (values: any) => {
-        console.log(values)
         if (adding) {
-            const valuesWithpicture: Car = { ...values, picture: 'neco' }
+            const valuesWithpicture: Car = { ...values}
             addNewCar(valuesWithpicture)
             setOpen(false)
         } else {
