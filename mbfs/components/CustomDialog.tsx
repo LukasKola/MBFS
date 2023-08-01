@@ -28,7 +28,6 @@ const CustomDialog = ({ car, adding, open, setOpen }: CustomDialogProps) => {
             updateCar({id: car?.id! ,data: values})
             setOpen(false)
         }
-
     }
 
     return (

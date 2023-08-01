@@ -116,6 +116,7 @@ const CustomForm = ({onSave, car}: CustomFormProps) => {
         <input name="year" value={carData?.year || ''} onChange={handleChange} className={inputStyle}/>
         <div className="text-red-500" >{errors.year}</div>
     </div>
+    <div className="m-5">
     <UploadButton
         endpoint="imageUploader"
         onClientUploadComplete={(res) => {
@@ -125,13 +126,14 @@ const CustomForm = ({onSave, car}: CustomFormProps) => {
             setCarData((prevData) => ({...prevData, picture: picUrl}))
           }
           console.log("Files info: ", res);
-          alert("Upload Completed");
+          alert("Nahrání fotky hotovo");
         }}
         onUploadError={(error: Error) => {
           // Do something with the error.
           alert(`ERROR! ${error.message}`);
         }}
       />
+    </div>
     <div>
         <CustomButton btnType="button" title="Uložit" handleClick={handleSave}/>
     </div>

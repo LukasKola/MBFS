@@ -1,4 +1,4 @@
-import { CarCard, CarList, CustomFilter, Hero, SearchBar } from "components";
+import { CarCard, Hero, SearchBar } from "components";
 import Head from "next/head";
 import { useState } from "react";
 import { api } from "~/utils/api";
@@ -35,8 +35,6 @@ export default function Home() {
           <div className="home__filters">
             <SearchBar setSearchManufacturer={setSearchManufacturer} setSearchModel={setSearchModel}/>
             <div className="home__filter-container">
-              <CustomFilter />
-              <CustomFilter />
             </div>
           </div>
           {!isDataEmpty ?
