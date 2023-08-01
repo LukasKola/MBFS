@@ -37,6 +37,7 @@
 }
 /* END: General styles */
 
+/* START: zoom styles */
 .fullscreen-image-wrapper {
   position: fixed;
   top: 0;
@@ -49,6 +50,7 @@
   justify-content: center;
   background: rgba(0, 0, 0, 0.5);
 }
+/* END: zoom styles */
 
 /* START: Hero styles */
 .hero {
@@ -104,45 +106,10 @@
   @apply flex flex-col p-6 justify-center items-start text-black-100 bg-primary-blue-100 hover:bg-white hover:shadow-md rounded-3xl;
 }
 
-.car-card__content {
-  @apply w-full flex justify-between items-start gap-2;
-}
-
 .car-card__content-title {
   @apply text-[22px] leading-[26px] font-bold capitalize;
 }
 
-.car-card__price {
-  @apply flex mt-6 text-[32px] leading-[38px] font-extrabold;
-}
-
-.car-card__price-dollar {
-  @apply self-start text-[14px] leading-[17px] font-semibold;
-}
-
-.car-card__price-day {
-  @apply self-end text-[14px] leading-[17px] font-medium;
-}
-
-.car-card__image {
-  @apply relative w-full h-40 my-3 object-contain;
-}
-
-.car-card__icon-container {
-  @apply flex group-hover:invisible w-full justify-between text-grey;
-}
-
-.car-card__icon {
-  @apply flex flex-col justify-center items-center gap-2;
-}
-
-.car-card__icon-text {
-  @apply text-[14px] leading-[17px];
-}
-
-.car-card__btn-container {
-  @apply hidden group-hover:flex absolute bottom-0 w-full z-10;
-}
 /* END: Car Card styles */
 
 /* START: searchbar styles */
@@ -172,7 +139,7 @@
   @apply absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm;
 }
 
-     .search-manufacturer__option {
+.search-manufacturer__option {
   @apply cursor-default select-none py-2 pl-10 pr-4;
 }
 

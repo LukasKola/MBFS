@@ -120,7 +120,6 @@ const CustomForm = ({onSave, car}: CustomFormProps) => {
     <UploadButton
         endpoint="imageUploader"
         onClientUploadComplete={(res) => {
-          // Do something with the response
           if(res){
             const picUrl =  res[0]?.fileUrl
             setCarData((prevData) => ({...prevData, picture: picUrl}))
@@ -129,7 +128,6 @@ const CustomForm = ({onSave, car}: CustomFormProps) => {
           alert("Nahrání fotky hotovo");
         }}
         onUploadError={(error: Error) => {
-          // Do something with the error.
           alert(`ERROR! ${error.message}`);
         }}
       />
