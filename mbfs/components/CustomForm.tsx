@@ -3,9 +3,20 @@ import { useState } from "react"
 import { CustomFormProps } from "types"
 import CustomButton from "./CustomButton"
 
+
+interface Errors {
+    color?: string;
+    engineVal?: string;
+    fuel?: string;
+    manufacturer?: string;
+    model?: string;
+    prize?: string;
+    year?: string;
+  }
+
 const CustomForm = ({onSave, car}: CustomFormProps) => {
     const [carData, setCarData] = useState(car)
-    const [errors, setErrors] = useState({})
+    const [errors, setErrors] = useState<Errors>({})
 
     const validateData = () => {
         let errors: any = {}
@@ -74,7 +85,7 @@ const CustomForm = ({onSave, car}: CustomFormProps) => {
     <div>
         <p>Vyrobce</p>
         <select value={manufacturers.find((e) => e === carData?.manufacturer)} onChange={handleSelectChange} className={inputStyle}>
-            {manufacturers.map((e) => <option>{e}</option>)}
+            {manufacturers.map((e) => <option key={e}>{e}</option>)}
         </select>
     </div>
     <div>

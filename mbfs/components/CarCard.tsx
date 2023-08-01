@@ -9,7 +9,7 @@ import { useState } from "react"
 
 
 const CarCard = ({ car, deleteCar }: Carprops) => {
-    const { id, fuel, manufacturer, model, engineVal, color, prize, picture } = car
+    const { id, fuel, manufacturer, model, engineVal, color, prize, picture, year } = car
     const [ deleteDialogOpen, setDeleteDialogOpen] = useState(false)
     const [updateDialogOpen, setUpdateDialogOpen] = useState(false)
   
@@ -30,6 +30,7 @@ const CarCard = ({ car, deleteCar }: Carprops) => {
                 <span className="self-start text-[14px]" >Objem motoru: {engineVal} kbcm</span>
                 <span className="self-start text-[14px]" >Barva: {color}</span>
                 <span className="self-start text-[14px]" >Typ paliva: {fuel}</span>
+                <span className="self-start text-[14px]" >Rok výroby: {year}</span>
             </p>
             <div className="relative w-full h-40 my-3 object-contain" >
                 <Image src='/hero.png'alt="car model" fill priority className="object-contain" />
